@@ -1,0 +1,7 @@
+{
+  "name": "CaseForge",
+  "description": "Professional OSINT and case management dashboard for investigators, featuring entity relationship tracking, evidence timelines, and automated audit trails.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
