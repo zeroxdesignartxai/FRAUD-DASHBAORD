@@ -27,6 +27,20 @@ const Dashboard: React.FC<DashboardProps> = ({ cases, alerts, onCaseClick }) => 
   ];
 
   const recentCases = [...cases].sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()).slice(0, 5);
+  const anomalyResources = [
+    {
+      title: 'Research & Surveys',
+      description: 'Curated papers, benchmarks, and surveys to inform model selection.',
+    },
+    {
+      title: 'Open-Source Libraries',
+      description: 'Tooling across classical, deep, and streaming anomaly detection.',
+    },
+    {
+      title: 'Datasets & Use Cases',
+      description: 'Public datasets and industry examples for fraud, cybersecurity, and IoT.',
+    },
+  ];
 
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
@@ -105,6 +119,35 @@ const Dashboard: React.FC<DashboardProps> = ({ cases, alerts, onCaseClick }) => 
               </PieChart>
             </ResponsiveContainer>
           </div>
+        </div>
+      </div>
+
+      <div className="bg-gradient-to-br from-slate-900 via-slate-900 to-blue-900 text-white rounded-2xl p-8 shadow-lg">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-blue-200">AI Resource Hub</p>
+            <h3 className="text-2xl font-bold mt-2">Anomaly Detection Intelligence Pack</h3>
+            <p className="text-sm text-blue-100 mt-3 max-w-2xl">
+              Explore the community-backed anomaly detection repository to accelerate model discovery,
+              evaluation, and deployment strategy for fraud operations.
+            </p>
+          </div>
+          <a
+            className="inline-flex items-center justify-center bg-white text-slate-900 px-5 py-2.5 rounded-lg text-sm font-bold shadow hover:bg-blue-50 transition-colors"
+            href="https://github.com/yzhao062/anomaly-detection-resources"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open Resource Hub
+          </a>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+          {anomalyResources.map(resource => (
+            <div key={resource.title} className="bg-white/10 border border-white/10 rounded-xl p-4">
+              <h4 className="font-semibold text-white">{resource.title}</h4>
+              <p className="text-xs text-blue-100 mt-2">{resource.description}</p>
+            </div>
+          ))}
         </div>
       </div>
 
